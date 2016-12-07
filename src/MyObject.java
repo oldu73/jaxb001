@@ -4,19 +4,28 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Object")
 public class MyObject {
 
-    private String value;
+    private String value1;
+    private String value2;
 
-    @XmlAttribute (name = "value", required = false)
-    public String getvalue() {
-        return value;
+    @XmlAttribute (name = "value1", required = false)
+    public String getValue1() {
+        return value1;
     }
 
-    public void setvalue(String value) {
-        this.value = value;
+    public void setValue1(String value1) {
+        this.value1 = value1;
     }
 
+    @XmlAttribute (name = "value2", required = false)
+    public String getValue2() {
+        return value2;
+    }
+
+    public void setValue2(String value2) {
+        this.value2 = value2;
+    }
 
     public String toString() {
-        return "value=" + value;
+        return "value1 - " + value1 + ", value2 - " + value2;
     }
 }

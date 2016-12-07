@@ -10,18 +10,37 @@ public class Example {
     public static void main(String[] args) {
 
         // create container with list
-        MyContainer container = new MyContainer();
+        MyContainer container = new MyContainer("Container 1");
+        container.setSubContainerValue(18);
+
+        MySubContainer mySubContainer1 = new MySubContainer("subc1");
+        MySubContainer mySubContainer2 = new MySubContainer("subc2");
+
+        container.getChildren().add(mySubContainer1);
+        container.getChildren().add(mySubContainer2);
 
         // add objects
         MyObject object;
 
         object = new MyObject();
-        object.setvalue("A");
-        container.getChildren().add( object);
+        object.setValue1("A");
+        object.setValue2("A2");
+        mySubContainer1.getChildren().add( object);
 
         object = new MyObject();
-        object.setvalue("B");
-        container.getChildren().add( object);
+        object.setValue1("B");
+        object.setValue2("BB");
+        mySubContainer1.getChildren().add( object);
+
+        object = new MyObject();
+        object.setValue1("C");
+        object.setValue2("CCC");
+        mySubContainer2.getChildren().add( object);
+
+        object = new MyObject();
+        object.setValue1("Dex");
+        object.setValue2("Dexter");
+        mySubContainer2.getChildren().add( object);
 
         // marshal
         String baseXml = marshal( container);
@@ -29,7 +48,7 @@ public class Example {
         // unmarshal
         container = unmarshal(baseXml);
 
-        System.out.println("Container:\n" + container);
+        System.out.print("Container, " + container);
 
 
         System.exit(0);
